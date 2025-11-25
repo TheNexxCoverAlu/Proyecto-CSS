@@ -1,10 +1,130 @@
 
+:where(header, footer, main, aside) {
+  padding: 2rem;
+}
 
-page-container {
+header {
+    border-bottom: 1px solid #6e6e6e;
+    background-color: var(--headerfooter-color);
+
+    @media(prefers-color-scheme: dark) {
+            border-bottom: 1px solid black;
+    }
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+
+    h1 {
+        flex-grow: 1;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1rem;
+        
+        li {
+            list-style-type: none;
+            
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+}
+
+.page-container {
     display: grid;
     grid-template-columns: 3fr 1fr;
+    width: 100%;
 
-    @media (width <= 768px) {
+    @media (width <= 900px) {
         grid-template-columns: 1fr;
+    }
+
+    main {
+        container-type: inline-size;
+        container-name: principal;
+    }
+
+    aside {
+        container-type: inline-size;
+        container-name: lateral;
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @container(width > 500px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @container(width > 800px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    .sidebar {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        @container lateral (width < 200px) {
+            text-align: center;
+            
+            h2 { 
+                border-bottom: none; 
+            }
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--color-encabezados);
+            padding-bottom: 1rem;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            gap: 1rem;
+        }
+
+        li {
+            list-style-type: none;
+            transition: all 0.2s ease-in-out;
+            border-radius: 5px;
+
+            a {
+                text-decoration: none;            
+                color: var(--color-encabezados);
+            }
+
+            &:hover {
+                padding: 1rem 1rem 1rem 3rem;
+                box-shadow: 0 10px 20px black;
+                background-color: var(--hover-bg-color);
+                
+                a {
+                    color: var(--hover-color);
+                }
+            }
+        }
+
+    }
+
+}
+
+footer {
+    text-align: center;
+    background-color: var(--headerfooter-color);
+    border-top: 1px solid #6e6e6e;
+
+    @media(prefers-color-scheme: dark) {
+            border-top: 1px solid black;
     }
 }

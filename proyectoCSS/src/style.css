@@ -1,5 +1,7 @@
-@import url("base.css");
-@import url("theme.css");
-@import url("layout.css");
-@import url("utilities.css");
-@import url("componentes.css");
+@layer base, layout, componentes, theme, utilities;
+
+@import url("base.css") layer(base);
+@import url("layout.css") layer(layout);
+@import url("componentes.css") layer(componentes);
+@import url("theme.css") layer(theme);
+@import url("utilities.css") layer(utilities);
