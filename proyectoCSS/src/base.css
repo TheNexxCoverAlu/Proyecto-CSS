@@ -1,0 +1,36 @@
+:root {
+  --bg-color: #d1d1d1;
+  --text-color: #252525;
+  --fuente: "Arial", sans-serif;
+  --color-encabezados: #1808ff;
+  
+  @media(prefers-color-scheme: dark)
+  {
+    --bg-color: #454545;
+    --text-color: #e0e0e0;
+    --color-encabezados: #6edeec;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:where(header, footer, main, aside) {
+  padding: 2rem;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  font-family: var(--fuente);
+  color: var(--text-color);
+
+  :is(h1, h2, h3) {
+    color: var(--color-encabezados);
+  }
+}
